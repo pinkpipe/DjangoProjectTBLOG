@@ -1,8 +1,3 @@
-
-<p align="center">
-  <img width="300" height="300" src="https://github.com/pinkpipe/DjangoProjectTBLOG/blob/main/READMEPHOTO/kent1.png">
-</p>
-
 # TBLOG
 This pet-project is based on the Django framework.
 
@@ -12,10 +7,14 @@ This pet-project is based on the Django framework.
 It is a web application that is designed to sell online courses on professional tattooing
 
 <p align="center">
-  <img width="800" src="https://github.com/pinkpipe/DjangoProjectTBLOG/blob/main/READMEPHOTO/screen1.png">
+  <img width="300" height="300" src="https://github.com/pinkpipe/DjangoProjectTBLOG/blob/main/READMEPHOTO/kent1.png">
 </p>  
 
 A one-page site where users can submit a request for training. As soon as you get to the site, you are greeted by a navigation menu that takes you to the desired page level
+
+<p align="center">
+  <img width="800" src="https://github.com/pinkpipe/DjangoProjectTBLOG/blob/main/READMEPHOTO/screen1.png">
+</p>  
 
 <p align="center">
   <img width="800" src="https://github.com/pinkpipe/DjangoProjectTBLOG/blob/main/READMEPHOTO/screen2.png">
@@ -29,11 +28,7 @@ A one-page site where users can submit a request for training. As soon as you ge
 
 An authorization and registration system has also been implemented. Super users will have access to additional site functions (CRM, chat with AI bot)
 
-<div style="display: flex; gap: 50px; justify-content: flex-start" >
-    <p align="center">
-        <img width="400" src="https://github.com/pinkpipe/DjangoProjectTBLOG/blob/main/READMEPHOTO/screen4.png">
-    </p>
-    <p align="center">
-        <img width="400" src="https://github.com/pinkpipe/DjangoProjectTBLOG/blob/main/READMEPHOTO/screen5.png">
-    </p> 
+<div style="display: flex; justify-content: center; gap: 20px;">
+    <img width="400" src="https://github.com/pinkpipe/DjangoProjectTBLOG/blob/main/READMEPHOTO/screen4.png">
+    <img width="400" src="https://github.com/pinkpipe/DjangoProjectTBLOG/blob/main/READMEPHOTO/screen5.png">
 </div>
