@@ -1,5 +1,5 @@
 
-![kent1.png](https://github.com/pinkpipe/DjangoProjectTBLOG/blob/main/READMEPHOTO/kent1.PNG)
+![kent1.png](https://github.com/pinkpipe/DjangoProjectTBLOG/blob/main/READMEPHOTO/kent1.png)
 
 # TBLOG
 This pet-project is based on the Django framework.
