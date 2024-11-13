@@ -1,5 +1,9 @@
 
-![kent1.png](https://github.com/pinkpipe/DjangoProjectTBLOG/blob/main/READMEPHOTO/kent1.png)
+<p align="center">
+  <img src="https://github.com/pinkpipe/DjangoProjectTBLOG/blob/main/READMEPHOTO/kent1.png">
+</p>
+
+[//]: # (![kent1.png]&#40;https://github.com/pinkpipe/DjangoProjectTBLOG/blob/main/READMEPHOTO/kent1.png&#41;)
 
 # TBLOG
 This pet-project is based on the Django framework.
