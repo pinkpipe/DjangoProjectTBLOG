@@ -1,0 +1,960 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ZHUROV</title>
+{#    <link href="{% static 'tblog.css' %}" rel="stylesheet">#}
+    <link href="https://fonts.googleapis.com/css2?family=Sixtyfour+Convergence&family=Stalinist+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Sixtyfour+Convergence&family=Stalinist+One&display=swap" rel="stylesheet">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        .container {
+            position: relative;
+            display: grid;
+            place-items: center;
+            {#margin-left: 260px;#}
+        }
+        .container12 {
+            position: relative;
+            display: grid;
+            place-items: center;
+            {#margin-left: 260px;#}
+            max-height: 0;
+            {#overflow: hidden;#}
+            transition: max-height 0.5s ease;
+            padding: 0 10px;
+        }
+        .centered {
+            text-align: center;
+        }
+        .color_or {
+            color: #ff9100;
+        }
+        .color_wh {
+            color: aliceblue;
+        }
+        .header_border {
+            position: relative;
+            font-family: "Stalinist One", sans-serif;
+            color: aliceblue;
+            font-size: 17px;
+            border: 4px solid #ff9100;
+            padding: 10px;
+            border-radius: 10px;
+            text-align: center;
+            background-color: rgb(23, 23, 23);
+            margin-left: 20px;
+        }
+        .div_style1 {
+            border: 1px solid rgba(255, 145, 0, 0.55);
+            border-radius: 10%;
+            width: 300px;
+            height: 690px;
+
+        }
+        .header_container {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            margin-left: 170px;
+        }
+        .header_container2 {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            {#margin-left: 240px;#}
+            gap: 20px;
+        }
+        .header_container3 {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            margin-left: 240px;
+            gap: 155px;
+        }
+        .header_container4 {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            margin-left: 190px;
+            gap: 35px;
+        }
+
+        .header_container5 {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            margin-left: 190px;
+            gap: 150px;
+        }
+        .header_container6 {
+            display: flex;
+            justify-content: flex-start;
+            margin-left: 190px;
+            gap: 100px;
+        }
+        .header_container7 {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            margin-left: 190px;
+            gap: 150px;
+        }
+
+        .container_1page {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            {#margin-left: 50px;#}
+            {#gap: 50px;#}
+            margin-right: 100px;
+
+        }
+        .container_2page {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container_3page {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 60px;
+        }
+        .container_4page {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 170px;
+        }
+        .center_div {
+            margin-right: 150px;
+        }
+
+
+        .style_word_h2 {
+            font-family: "Roboto", sans-serif;
+            color: aliceblue;
+            font-size: 40px;
+            width: 400px;
+            overflow-wrap: break-word;
+            text-align: center;
+            margin-left: 200px;
+        }
+        .style_word_h22 {
+            font-family: "Roboto", sans-serif;
+            text-align: center;
+            color: aliceblue;
+            font-size: 30px;
+
+        }
+
+        .button_in {
+            background-color: #ff9100;
+            color: aliceblue;
+            font-family: "Stalinist One", sans-serif;
+            font-size: 30px;
+            border: none;
+            border-radius: 10px;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            margin-left: 225px;
+        }
+        .button_in:hover {
+            background-color: #854c00;
+            transform: translateY(-2px);
+        }
+        .button_in:active {
+            transform: translateY(0);
+        }
+        .button_in2 {
+            background-color: #ff9100;
+            color: aliceblue;
+            font-family: "Stalinist One", sans-serif;
+            font-size: 20px;
+            border: none;
+            border-radius: 10px;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            margin-left: 30px;
+
+        }
+        .button_in2:hover {
+            background-color: #854c00;
+            transform: translateY(-2px);
+        }
+        .button_in2:active {
+            transform: translateY(0);
+        }
+
+
+        .image_container {
+            text-align: center;
+        }
+        .image_container figcaption {
+            font-style: italic;
+            color: aliceblue;
+            font-size: 25px;
+            width: 400px;
+            overflow-wrap: break-word;
+            margin-left: 50px;
+        }
+
+        .btn_scroll {
+            {#display: none;#}
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 99;
+            font-size: 20px;
+            border: none;
+            outline: none;
+            background-color: rgba(255, 145, 0, 0.53);
+            color: aliceblue;
+            cursor: pointer;
+            padding: 20px;
+            border-radius: 30%;
+            transition: background-color 0.3s;
+        }
+        .btn_scroll:hover {
+            background-color: rgba(240, 248, 255, 0.53);
+            transform: translateY(-2px)
+        }
+        .btn_scroll:active {
+            transform: translateY(0);
+        }
+        .p_style1 {
+            text-align: center;
+            margin: 0 auto;
+            color: aliceblue;
+            font-family: "Roboto", sans-serif;
+            font-size: 25px;
+            width: 700px;
+        }
+        .p_style {
+            color: aliceblue;
+            font-family: "Roboto", sans-serif;
+            font-size: 20px;
+            margin-left: 20px;
+            line-height: 1.8;
+            width: 260px;
+            overflow-wrap: break-word;
+        }
+        .p_style2 {
+            color: aliceblue;
+            font-family: "Roboto", sans-serif;
+            font-size: 20px;
+            text-align: center;
+        }
+        .p_style3 {
+            max-width: 200px;
+            color: aliceblue;
+            font-family: "Roboto", sans-serif;
+            font-size: 20px;
+            margin-left: 31px;
+            text-align: center;
+
+        }
+        .p_style4 {
+            color: aliceblue;
+            font-family: "Roboto", sans-serif;
+            font-size: 20px;
+            overflow-wrap: break-word;
+            text-align: center;
+            margin-left: 45px;
+        }
+        .p_style5 {
+            color: aliceblue;
+            font-family: "Roboto", sans-serif;
+            font-size: 20px;
+            overflow-wrap: break-word;
+            text-align: center;
+            margin-left: 15px;
+        }
+        .p_style6 {
+            color: aliceblue;
+            font-family: "Roboto", sans-serif;
+            font-size: 25px;
+            overflow-wrap: break-word;
+            width: 500px;
+            line-height: 1.3;
+        }
+        .h2_style {
+            font-family: "Stalinist One", sans-serif;
+            color: aliceblue;
+            text-align: center;
+            font-size: 35px;
+
+        }
+        .h2_style1 {
+            font-family: "Stalinist One", sans-serif;
+            color: aliceblue;
+            font-size: 25px;
+            text-align: center;
+
+        }
+        .h2_style2 {
+            font-family: "Stalinist One", sans-serif;
+            color: aliceblue;
+            font-size: 25px;
+            width: 300px;
+        }
+        .img_style1 {
+            margin-left: 110px;
+        }
+        .img_style2 {
+            border-radius: 10%;
+        }
+
+        .down_up {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+        }
+
+        {#------------------#}
+
+        .button {
+          inline-size: 75%;
+          padding: 0.5lh 1.5lh;
+          background-color: rgb(23, 23, 23);
+          border: 1px solid rgba(255, 145, 0, 0.55);
+            border-radius: 10px;
+          cursor: pointer;
+            font-family: 'Roboto', sans-serif;
+            color: aliceblue;
+            font-size: 25px;
+            z-index: 2;
+            position: absolute;
+        }
+
+        .button:hover,
+        .button:focus-visible {
+            background-color: rgb(37,37,37);
+        }
+
+        .menu {
+            position: absolute;
+            display: grid;
+            margin-block-start: 1.5lh;
+            background-color: rgb(37, 37, 37);
+            inline-size: 72.2%;
+            overflow: hidden;
+            line-height: 0;
+            color: transparent;
+            transition: line-height 0.5s, color 0.5s, max-height 0.5s ease;
+            top: 20px;
+            z-index: 1;
+            border-radius: 10px;
+            list-style-type: none;
+            max-height: 0;
+            padding: 0 10px;
+
+
+
+        }
+
+        .menu-item {
+            overflow: hidden;
+
+        }
+
+        .menu-item::before {
+            position: relative;
+            content: '🔶';
+            margin-right: 4px;
+            top: 30px;
+        }
+
+        .menu-link {
+          display: block;
+          padding: 1lh 80px;
+
+            font-family: 'Roboto', sans-serif;
+            font-size: 20px;
+            color: aliceblue;
+        }
+
+        {#.menu-link:hover,#}
+        {#.menu-link:focus-visible {#}
+        {#  background-color: #f5cac3;#}
+
+
+        .button.active ~ .menu {
+            line-height: 0.8;
+            color: currentColor;
+            max-height: 400px;
+            padding: 10px;
+
+        }
+
+
+        .content1 {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+            background-color: lightblue;
+            padding: 0 10px;
+        }
+
+        {#-------------#}
+
+
+
+        .button12 {
+          inline-size: 75%;
+          padding: 0.5lh 1.5lh;
+          background-color: rgb(23, 23, 23);
+          border: 1px solid rgba(255, 145, 0, 0.55);
+            border-radius: 10px;
+          cursor: pointer;
+            font-family: 'Roboto', sans-serif;
+            color: aliceblue;
+            font-size: 25px;
+            z-index: 2;
+            position: absolute;
+        }
+
+
+        .button12:hover,
+        .button12:focus-visible {
+          background-color: rgb(37,37,37);
+        }
+
+        .menu12 {
+          position: absolute;
+          display: grid;
+          margin-block-start: 1.5lh;
+          background-color: rgb(37, 37, 37);
+            inline-size: 72.2%;
+          overflow: hidden;
+          line-height: 0;
+          color: transparent;
+          transition: line-height 0.5s, color 0.5s;
+            top: 20px;
+            z-index: 1;
+            border-radius: 10px;
+            list-style-type: none;
+
+        }
+
+        .menu-item12 {
+          overflow: hidden;
+
+        }
+
+        .menu-item12::before {
+            position: relative;
+          content: '🔶';
+            margin-right: 4px;
+            top: 30px;
+        }
+
+        .menu-link12 {
+          display: block;
+          padding: 1lh 80px;
+
+            font-family: 'Roboto', sans-serif;
+            font-size: 20px;
+            color: aliceblue;
+        }
+
+        {#.menu-link:hover,#}
+        {#.menu-link:focus-visible {#}
+        {#  background-color: #f5cac3;#}
+
+
+        .button12.active ~ .menu12 {
+          line-height: 0.8;
+          color: currentColor;
+        }
+
+
+
+        .container123 {
+          display: flex;
+          overflow-x: auto !important;
+          width: 100%;
+        }
+
+        .item123 {
+          flex: 0 0 auto;
+          width: 100px;
+          height: 50px;
+          line-height: 50px;
+          text-align: center;
+          background-color: #eee;
+          transition: transform 0.3s ease;
+            margin-right: 10px;
+        }
+
+        .active123 {
+          transform: translateX(100px);
+        }
+
+        body {
+            background-color: rgb(23, 23, 23) !important;
+        }
+
+        h1 {
+            font-family: "Stalinist One", sans-serif;
+            color: aliceblue;
+            text-align: center;
+        }
+
+        a {
+            font-family: "Stalinist One", sans-serif;
+            font-size: 20px;
+            margin: 0 60px;
+            text-decoration: none;
+            color: aliceblue;
+            transition: color 0.3s;
+        }
+        a:hover {
+            color: #ff9100;
+        }
+
+
+        hr {
+            border: none;
+            height: 0.5px;
+            width: 75%;
+            background-color: aliceblue;
+            margin: 10px auto;
+            flex-grow: 1;
+            opacity: 0.5;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>
+            <span class="color_or">ZHUROV</span>
+            <span>ТАТУ ОБУЧЕНИЕ!</span>
+        </h1>
+    </header>
+    <p style="text-align: center">
+        <img
+                src="{% static 'img/kent3.jpg' %}"
+                alt="Друг"
+                width="310"
+                height="300"
+        >
+    </p>
+    <hr>
+    <nav class="centered">
+        <a href="#anchor1">ПОЧЕМУ МЫ?</a>
+        <a href="#anchor2">О НАС</a>
+        <a href="#anchor3">КОНТАКТЫ</a>
+    </nav>
+    <hr>
+    <br>
+    <p style="text-align: center">
+        <img
+                src="{% static 'img/school.jpg' %}"
+                alt="Школа топ-1"
+                width="850"
+        >
+    </p>
+    <br>
+
+    <div class="container_2page">
+
+        <div class="container_1page">
+            <div>
+                <div class="header_container">
+                    <h2 class="header_border">8 НЕДЕЛЬ</h2>
+                    <h2 class="header_border">УЖЕ СКОРО</h2>
+                </div>
+                <h2 class="style_word_h2">
+                    <span class="color_or">АВТОРСКИЙ</span>
+                    <span>КУРС ОТ ТОПОВОГО ТАТУИРОВЩИКА 2024 ГОДА!</span>
+                </h2>
+                <button class="button_in">УЧАСТВУЮ</button>
+            </div>
+            <div class="image_container">
+                <img
+                    src="{% static 'img/ya.jpg' %}"
+                    alt="Кирилл"
+                    width="500"
+                >
+                <figcaption class="image_container">«Привет, меня зовут Журов Кирилл. Я татуировщик с десятилетним опытом работы. Основатель проекта «ZHUROVtattoo». Остальное смотри ниже.»</figcaption>
+
+            </div>
+        </div>
+    </div>
+    <button id="btn_scroll" class="btn_scroll">↑</button>
+    <script>
+        let scrollUpBtn = document.getElementById('btn_scroll')
+
+        window.onscroll = function () {
+            scrollFunction();
+        };
+        function scrollFunction() {
+            if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) {
+                scrollUpBtn.style.display = 'block';
+        } else {
+            scrollUpBtn.style.display = 'none'
+            }
+        }
+
+        scrollUpBtn.onclick = function () {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            })
+        }
+    </script>
+
+    <br>
+    <br>
+    <hr>
+
+
+
+    <div id="anchor1">
+        <h2 class="h2_style">
+            <span class="color_or">КУРС</span>
+            <span>ПОДХОДИТ ДЛЯ:</span>
+        </h2>
+        <br>
+        <div class="container_2page">
+
+            <div class="header_container2">
+                <div class="div_style1">
+                    <h2 class="style_word_h22">НОВИЧОК</h2>
+                    <p class="p_style">Этот курс подойдёт для быстрого и качественного старта. Ты освоишь железобетонную базу, сделаешь свои первые татуировки, которые будет не стыдно выложить в портфолио, и поймёшь, по какому пути развития двигаться дальше для достижения удивительных результатов в максимально короткий срок!</p>
+                    <button class="button_in2">УЧАСТВУЮ</button>
+                </div>
+                <div class="div_style1">
+                    <h2 class="style_word_h22">СРЕДНИЙ</h2>
+                    <p class="p_style">Наша система обучения подарит тебе квантовый скачок в скилле, ты, наконец, повысишь стоимость сеанса и выйдешь на следующий уровень! А так же бонусом сможешь пройти всю базу от Журова Кирилла и сможешь провести качественную работу над ошибками.</p>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <button class="button_in2">УЧАСТВУЮ</button>
+                </div>
+                <div class="div_style1">
+                    <h2 class="style_word_h22">ОПЫТНЫЙ</h2>
+                    <p class="p_style">Привет, опытный воин и старая акула татуировки. Даже для тебя здесь есть чем поживиться! Пока молодые проходят базу, мы поможем тебе качественно повысить квалификацию и выйти на новый уровень не только татуировки, но и масштабировать действующий бизнес.</p>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <button class="button_in2">УЧАСТВУЮ</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+
+        <br>
+
+        <h2 class="h2_style">
+            <span>ПОЧЕМУ ИМЕННО</span>
+            <span class="color_or">МЫ?</span>
+        </h2>
+        <div class="container_2page">
+            <div>
+
+                <div>
+                    <p class="p_style1">Спасибо, что доверили своё обучение нашей команде. Мы в свою очередь обещаем, что будем внимательны к каждому из вас!</p>
+                </div>
+                <br>
+                <div class="center_div">
+
+                    <div class="header_container3">
+                        <img
+                            src="{% static 'img/house.jpg' %}"
+                            alt="Домик"
+                            width="120"
+                        >
+                        <img
+                            src="{% static 'img/earth.jpg' %}"
+                            alt="Земля"
+                            width="120"
+                        >
+                        <img
+                            src="{% static 'img/head.jpg' %}"
+                            alt="Диплом"
+                            width="120"
+                        >
+                        <img
+                            src="{% static 'img/tg.jpg' %}"
+                            alt="ТГ"
+                            width="120"
+                        >
+                    </div>
+                    <br>
+                    <br>
+                    <div class="header_container4">
+                        <p class="p_style2">
+                            <span>ОБУЧАЕМ С </span>
+                            <span class="color_or">2019</span>
+                            <span>ГОДА</span>
+                        </p>
+                        <p class="p_style3">
+                            <span>К</span>
+                            <span class="color_or">НАМ</span>
+                            <span>ЕДУТ СО ВСЕГО МИРА</span>
+                        </p>
+                        <p class="p_style4">
+                            <span>БОЛЕЕ</span>
+                            <span class="color_or">200</span>
+                            <span>УЧЕНИКОВ</span>
+                        </p>
+                        <p class="p_style5">
+                            <span>ЧАТ С</span>
+                            <span class="color_or">ПРЕПОДАВАТЕЛЕМ</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <hr>
+    <br>
+    <div>
+        <h2 class="h2_style">
+            <span>ЗА</span>
+            <span class="color_or">ДВА МЕСЯЦА ТЫ:</span>
+        </h2>
+        <div class="container_3page">
+
+            <img
+                    src="{% static 'img/its_me.jpg' %}"
+                    alt="2 месяца обучения"
+                    width="1200"
+                    class="img_style1"
+                >
+        </div>
+    </div>
+
+    <br>
+    <hr>
+    <br>
+
+    <div>
+        <h2 class="h2_style">
+            <span>ФОРМАТ</span>
+            <span class="color_or">КУРСА</span>
+        </h2>
+        <div class="container_4page">
+            
+            <div class="header_container5">
+                <img
+                    src="{% static 'img/mem.jpg' %}"
+                    alt="Мемный"
+                    width="350"
+                    class="img_style2"
+                >
+                <div>
+                    <h2 class="h2_style1">ВИДЕО-ЛЕКЦИИ</h2>
+                    <p class="p_style6">Мы подготовили для тебя 15 мощнейших уроков, каждый из которых разработан огромной командой специалистов, ведущих обучающие курсы тату-мастеров более 6 лет.</p>
+                </div>
+            </div>
+        </div>
+    
+            <br>
+            <br>
+        <div class="container_4page">
+            
+            <div class="header_container5">
+                <div>
+                    <h2 class="h2_style1">ТЕОРИЯ + ПРАКТИКА</h2>
+                    <p class="p_style6">После каждого урока ты будешь получать задание, которое на практике поможет закрепить и преумножить полученные знания. 80% практики и никакой воды — это уже устоявшийся девиз нашей школы! Конечно же, теория важна, но намного эффективнее, когда ты изучаешь ее руками, а не глазами.</p>
+                </div>
+                <img
+                    src="{% static 'img/tattoo.jpg' %}"
+                    alt="Тату"
+                    width="350"
+                    class="img_style2"
+                >
+            </div>
+        </div>
+    
+            <br>
+            <br>
+            <div class="container_4page">
+                
+                <div class="header_container6">
+                    <img
+                        src="{% static 'img/mess.jpg' %}"
+                        alt="Сообщения"
+                        width="500"
+                        class="img_style2"
+                    >
+                    <div>
+                        <h2 class="h2_style2">ЧАТ С ПРЕПОДАВАТЕЛЕМ</h2>
+                        <p class="p_style6">На старте обучения ты попадешь в закрытый чат с сокурсниками и кураторами, где Вы сможете общаться, совместно решать поставленные задачи и задавать вопросы лично Кириллу</p>
+                    </div>
+                </div>
+            </div>
+    
+            <br>
+            <br>
+            <div class="container_4page">
+                
+                <div class="header_container7">
+                    <div>
+                        <h2 class="h2_style2">ИНДИВИДУАЛЬНОЕ СОПРОВОЖДЕНИЕ</h2>
+                        <p class="p_style6">Хочешь забрать с обучения максимум? А ты точно готов? Тогда добро пожаловать на личное наставничество к Кириллу. Но сразу предупреждаем это будет жёстко эффективно. Как самый строгий и внимательный тренер, за 3 месяца личного обучения, он сделает из тебя чемпиона!</p>
+                    </div>
+                    <img src="{% static 'img/work.jpg' %}"
+                         alt="Работа"
+                         width="350"
+                         class="img_style2"
+                    >
+                </div>
+            </div>
+        </div>
+    
+
+
+
+    <br>
+    <br>
+    <hr>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <div>
+        <div class="container">
+          <button class="button" aria-expanded="false" aria-controls="list">
+              <span class="color_or">1 БЛОК:</span>
+              ВВОДНЫЙ
+          </button>
+              <ul class="menu" id="list" aria-hidden="true">
+                <li class="menu-item">
+                    <span class="menu-link" tabindex="-1">Инструменты для создания эскизов</span>
+                </li>
+                <li class="menu-item">
+                    <span class="menu-link" tabindex="-1">Особенности стилистик</span>
+                </li>
+                  <li class="menu-item">
+                    <span class="menu-link" tabindex="-1">Работа с референсами</span>
+                </li>
+                  <li class="menu-item">
+                    <span class="menu-link" tabindex="-1">Подготовка эскиза к трансферу</span>
+                </li>
+              </ul>
+
+            <script>
+                const button = document.querySelector('.button')
+                const menu = document.querySelector('.menu')
+                const menuLinks = document.querySelectorAll('.menu-link')
+
+                button.addEventListener('click', (e) => {
+                  button.classList.toggle('active')
+
+                  if (button.classList.contains('active')) {
+                    button.setAttribute('aria-expanded', 'true')
+                    menu.setAttribute('aria-hidden', 'false')
+                    menuLinks.forEach(link => link.setAttribute('tabindex', '0'))
+                  } else {
+                    button.setAttribute('aria-expanded', 'false')
+                    menu.setAttribute('aria-hidden', 'true')
+                    menuLinks.forEach(link => link.setAttribute('tabindex', '-1'))
+                  }
+                })
+            </script>
+        </div>
+
+            <br>
+            <br>
+            <br>
+            <br>
+
+        <div class="container">
+            <button class="button12" aria-expanded="false" aria-controls="list">
+                <span class="color_or">1 БЛОК:</span>
+                ВВОДНЫЙ
+            </button>
+            <ul class="menu12" id="list2" aria-hidden="true">
+                <li class="menu-item12">
+                    <span class="menu-link" tabindex="-1">Инструменты для создания эскизов</span>
+                </li>
+                <li class="menu-item12">
+                    <span class="menu-link" tabindex="-1">Особенности стилистик</span>
+                </li>
+                <li class="menu-item12">
+                    <span class="menu-link" tabindex="-1">Работа с референсами</span>
+                </li>
+                <li class="menu-item12">
+                    <span class="menu-link" tabindex="-1">Подготовка эскиза к трансферу</span>
+                </li>
+            </ul>
+            <script>
+                const button12 = document.querySelector('.button12')
+                const menu12 = document.querySelector('.menu12')
+                const menuLinks12 = document.querySelectorAll('.menu-link12')
+
+                button12.addEventListener('click', (e) => {
+                    button12.classList.toggle('active')
+
+                    if (button12.classList.contains('active')) {
+                        button12.setAttribute('aria-expanded', 'true')
+                        menu12.setAttribute('aria-hidden', 'false')
+                        menuLinks12.forEach(link => link.setAttribute('tabindex', '0'))
+                    } else {
+                        button12.setAttribute('aria-expanded', 'false')
+                        menu12.setAttribute('aria-hidden', 'true')
+                     menuLinks12.forEach(link => link.setAttribute('tabindex', '-1'))
+                    }
+                })
+            </script>
+        </div>
+    </div>
+
+
+
+
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+</body>
+</html>

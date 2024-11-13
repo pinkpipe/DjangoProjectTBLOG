@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Кнопка авторизации</title>
+        <link href="https://fonts.googleapis.com/css2?family=Sixtyfour+Convergence&family=Stalinist+One&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Sixtyfour+Convergence&family=Stalinist+One&display=swap" rel="stylesheet">
+
+        <style>
+            .centered {
+                text-align: center;
+            }
+            .modal {
+                display: none; /* Скрыть окно по умолчанию */
+                position: fixed; /* Фиксированное положение */
+                z-index: 1; /* Поверх всего остального */
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                overflow: auto;
+                background-color: rgba(0, 0, 0, 0.49); /* Полупрозрачный фон */
+                opacity: 0;
+                transition: opacity 0.5s ease;
+            }
+            .modal.show {
+                opacity: 1;
+            }
+
+            .modal-content {
+                background: linear-gradient(to top, rgb(255, 106, 0), rgba(255, 106, 0, 0.51));
+                margin: 15% auto;
+                padding: 20px;
+                width: 350px;
+                height: 320px; /* Изменено для размещения дополнительных полей */
+                border-radius: 10px;
+            }
+
+            .close {
+                color: #ffffff;
+                float: right;
+                font-size: 28px;
+                font-weight: bold;
+                opacity: 1;
+                transition: color 0.3s, transform 0.3s;
+            }
+
+            .close:hover,
+            .close:focus {
+                transform: rotate(90deg);
+                opacity: 0.5;
+                text-decoration: none;
+                cursor: pointer;
+            }
+
+            .btn_style {
+                background-color: #ff9100;
+                color: aliceblue;
+                font-family: "Stalinist One", sans-serif;
+                font-size: 15px;
+                border: none;
+                border-radius: 10px;
+                padding: 10px 20px;
+                cursor: pointer;
+                transition: background-color 0.3s, transform 0.2s;
+            }
+
+            .btn_style:hover {
+                background-color: #854c00;
+                transform: translateY(-2px);
+            }
+            .btn_style:active {
+                transform: translateY(0);
+            }
+
+            .btn_style_au {
+                background-color: #ffffff;
+                color: #ff9100;
+                font-family: "Stalinist One", sans-serif;
+                font-size: 15px;
+                border: none;
+                border-radius: 10px;
+                padding: 10px 20px;
+                cursor: pointer;
+                transition: background-color 0.3s, transform 0.2s;
+                opacity: 1;
+            }
+
+            .btn_style_au:hover {
+                opacity: 0.5;
+                transform: translateY(-2px);
+            }
+            .btn_style_au:active {
+                transform: translateY(0);
+            }
+
+            .input_style {
+                width: 250px;
+                height: 25px;
+                border-radius: 10px;
+                background-color: rgb(255, 255, 255);
+                font-family: "Roboto", sans-serif;
+                font-size: 20px;
+                text-align: center;
+                cursor: pointer;
+                transition: background-color 0.5s ease;
+            }
+            .input_style:focus {
+                background-color: rgba(255, 255, 255, 0.38);
+            }
+            .input_style::placeholder{
+                color: gray;
+                font-family: "Roboto", sans-serif;
+                text-align: center;
+                font-size: 15px;
+                opacity: 1;
+                transition: opacity 0.5s;
+            }
+            .input_style:focus::placeholder {
+                opacity: 0;
+            }
+            .color_gr {
+                color: rgb(255,255,255);
+                font-family: "Stalinist One", sans-serif;
+                font-size: 17px;
+                margin-left: 12px;
+            }
+            .register-link {
+                color: #ffffff;
+                cursor: pointer;
+            }
+
+            .form-container {
+                transition: opacity 0.5s ease;
+                opacity: 1;
+            }
+            .form.hidden {
+                opacity: 0;
+                pointer-events: none;
+                transform: scale(0.95);
+                transition: opacity 0.5s ease, transform 0.5s ease;
+            }
+            .form {
+                transition: opacity 0.5s ease, transform 0.5s ease;
+            }
+
+            #registerForm {
+                margin-top: -190px;
+            }
+            #loginForm {
+                margin-top: 50px;
+            }
+        </style>
+    </head>
+    <body>
+
+        <button class='btn_style' onclick="showModal()">Войти</button>
+
+        <div id="myModal" class="modal">
+            <div class="modal-content" id="modal_con">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <div class="centered">
+                    <h2 id="modalTitle" class="color_gr">АВТОРИЗАЦИЯ</h2>
+                    <div class="form-container">
+                        <form id="loginForm" class="form" action="{% url 'tblog:login' %}" method="post">
+                            {% csrf_token %}
+                            <label for="username"></label>
+                            <input placeholder="ИМЯ ПОЛЬЗОВАТЕЛЯ" class="input_style" type="text" id="username" name="username"><br>
+                            <label for="password"></label><br>
+                            <input class="input_style" placeholder="ПАРОЛЬ" type="password" id="password" name="password"><br><br>
+                            <input class="btn_style_au" type="submit" value="Войти">
+                            <p>Ещё нет аккаунта? <span class="register-link" onclick="showRegisterForm()">Зарегистрироваться</span></p>
+                        </form>
+                        <form id="registerForm" class="form hidden" action="{% url 'tblog:register' %}" method="post">
+                            {% csrf_token %}
+                            <label for="usernameReg"></label>
+                            <input placeholder="ИМЯ ПОЛЬЗОВАТЕЛЯ" class="input_style" type="text" id="usernameReg" name="username"><br>
+                            <label for="emailReg"></label><br>
+                            <input class="input_style" placeholder="EMAIL" type="email" id="emailReg" name="email"><br><br>
+                            <label for="passwordReg"></label>
+                            <input class="input_style" placeholder="ПАРОЛЬ" type="password" id="passwordReg" name="password"><br><br>
+                            <label for="passwordConfirmReg"></label>
+                            <input class="input_style" placeholder="ПОДТВЕРДИТЕ ПАРОЛЬ" type="password" id="passwordConfirmReg" name="password_confirm"><br><br>
+                            <input class="btn_style_au" type="submit" value="Зарегистрироваться">
+                            <p>Уже есть аккаунт? <span class="register-link" onclick="showLoginForm()">Войти</span></p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            var modal = document.getElementById("myModal");
+            var modal2 = document.getElementById('modal_con');
+
+            function showModal() {
+                modal.style.display = "block"; // Сначала показываем модальное окно
+                setTimeout(function() {
+                    modal.classList.add("show"); // Затем запускаем плавный переход
+                }, 10); // Небольшая задержка для корректного срабатывания перехода
+            }
+
+            function closeModal() {
+                modal.classList.remove("show"); // Запускаем плавный переход скрытия
+                setTimeout(function() { // Ждем окончания анимации
+                    modal.style.display = "none";
+                    document.getElementById('loginForm').reset();
+                    document.getElementById('registerForm').reset();// Затем скрываем модальное окно
+                }, 500); // Задержка соответствует duration перехода (0.5s)
+            }
+
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    closeModal();
+                }
+            }
+
+            function showRegisterForm() {
+                document.getElementById('loginForm').classList.add('hidden');
+                document.getElementById('registerForm').classList.remove('hidden');
+                modal2.style.height = '410px';
+                document.getElementById('modalTitle').innerText = 'РЕГИСТРАЦИЯ';
+            }
+
+            function showLoginForm() {
+                document.getElementById('registerForm').classList.add('hidden');
+                document.getElementById('loginForm').classList.remove('hidden');
+                modal2.style.height = '320px';
+                document.getElementById('modalTitle').innerText = 'АВТОРИЗАЦИЯ';
+            }
+
+            // Функция для получения CSRF-токена из cookie
+            function getCookie(name) {
+                var cookieValue = null;
+                if (document.cookie && document.cookie !== '') {
+                    var cookies = document.cookie.split(';');
+                    for (var i = 0; i < cookies.length; i++) {
+                        var cookie = cookies[i].trim();
+                        // Проверяем, начинается ли cookie с нужного имени
+                        if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                            cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                            break;
+                        }
+                    }
+                }
+                return cookieValue;
+            }
+            var csrftoken = getCookie('csrftoken');
+
+            document.getElementById("registerForm").onsubmit = function(event) {
+                event.preventDefault();
+                let username = document.getElementById('usernameReg').value;
+                let password = document.getElementById('passwordReg').value;
+                let passwordConf = document.getElementById('passwordConfirmReg').value;
+                let email = document.getElementById('emailReg').value;
+
+                if (username.trim() === '' || password.trim() ==='' || email.trim() === '') {
+                    alert('Заполните поля!')
+                    return;
+                }
+                if (password.trim() !== passwordConf.trim()) {
+                    alert('Пароли не сходятся!')
+                    return;
+                }
+                
+                // Для регистрации
+                fetch("{% url 'tblog:register' %}", {
+                    method: 'POST',
+                    headers: {
+                        'X-CSRFToken': csrftoken,
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    },
+                    body: `username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}&passwordCon=${encodeURIComponent(passwordConf)}&email=${encodeURIComponent(email)}`
+                })
+                .then(response => {
+                    if (response.ok) {
+                        return response.json();
+                    } else {
+                        return response.json().then(err => {throw err})
+                    }
+                })
+                .then(data => {
+                    if (data.message) {
+                        alert(data.message);
+                        closeModal();
+                    }
+                })
+                .catch(error => {
+                    if (error.error) {
+                        alert(error.error);
+                    } else {
+                        alert('Произошла ошибка при регистрации.');
+                    }
+                    console.error('Ошибка', error);
+                });
+            }
+
+            document.getElementById("loginForm").onsubmit = function(event) {
+                event.preventDefault();
+                let username = document.getElementById('username').value;
+                let password = document.getElementById('password').value;
+
+                if (username.trim() === '' || password.trim() ==='') {
+                    alert('Заполните поля!');
+                    return;
+                }
+
+                fetch("{% url 'tblog:login' %}", {
+                    method: 'POST',
+                    headers: {
+                        'X-CSRFToken': csrftoken,
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    },
+                    body: `username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`
+                })
+                .then(response => {
+                    if (response.ok) {
+                        return response.json();
+                    } else {
+                        return response.json().then(err => {throw err})
+                    }
+                })
+                .then(data => {
+                    if (data.message) {
+                        alert(data.message);
+                        closeModal();
+                        // Здесь вы можете добавить перенаправление или обновить страницу
+                    }
+                })
+                .catch(error => {
+                    if (error.error) {
+                        alert(error.error);
+                    } else {
+                        alert('Произошла ошибка при авторизации.');
+                    }
+                    console.error('Ошибка', error);
+                });
+            }
+        </script>
+
+    </body>
+</html>
