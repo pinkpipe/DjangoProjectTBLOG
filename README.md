@@ -1,6 +1,6 @@
 
 <p align="center">
-  <img src="https://github.com/pinkpipe/DjangoProjectTBLOG/blob/main/READMEPHOTO/kent1.png">
+  <img width="300" height="300" src="https://github.com/pinkpipe/DjangoProjectTBLOG/blob/main/READMEPHOTO/kent1.png">
 </p>
 
 [//]: # (![kent1.png]&#40;https://github.com/pinkpipe/DjangoProjectTBLOG/blob/main/READMEPHOTO/kent1.png&#41;)
