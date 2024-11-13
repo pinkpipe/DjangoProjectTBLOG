@@ -27,3 +27,13 @@ A one-page site where users can submit a request for training. As soon as you ge
   <img width="800" src="https://github.com/pinkpipe/DjangoProjectTBLOG/blob/main/READMEPHOTO/screen3.png">
 </p> 
 
+An authorization and registration system has also been implemented. Super users will have access to additional site functions (CRM, chat with AI bot)
+
+<nav>
+    <p align="center">
+        <img width="400" src="https://github.com/pinkpipe/DjangoProjectTBLOG/blob/main/READMEPHOTO/screen4.png">
+    </p>
+    <p align="center">
+        <img width="400" src="https://github.com/pinkpipe/DjangoProjectTBLOG/blob/main/READMEPHOTO/screen5.png">
+    </p> 
+</nav>
