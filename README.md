@@ -29,7 +29,7 @@ A one-page site where users can submit a request for training. As soon as you ge
 
 An authorization and registration system has also been implemented. Super users will have access to additional site functions (CRM, chat with AI bot)
 
-<nav>
+<nav style="display: flex; gap: 50px; justify-content: flex-start" >
     <p align="center">
         <img width="400" src="https://github.com/pinkpipe/DjangoProjectTBLOG/blob/main/READMEPHOTO/screen4.png">
     </p>
